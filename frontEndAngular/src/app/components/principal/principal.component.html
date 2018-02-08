@@ -1,0 +1,38 @@
+<nav class="navbar navbar-inverse bg-inverse">
+        <h1 class="navbar-brand mb-0">Money Change</h1>
+</nav>
+<br><br>
+<div class="container">
+    <div class="row justify-content-center">
+        <form name="form" (ngSubmit)="p.form.valid && calcular()" #p="ngForm" novalidate>
+            <div class="row">
+            <div class="form-group col-sm" [ngClass]="{ 'has-error': p.submitted && !usd.valid }">
+                <label for="usd">USD</label>
+                <input type="number" step='0.0001' class="form-control" name="usd" [(ngModel)]="model.usd" #usd="ngModel" required placeholder="Set the Amount in USD" />
+                <div *ngIf="p.submitted && !usd.valid" class="help-block">USD is required</div>
+            </div>
+            <div class="form-group col-sm" [ngClass]="{ 'has-error': p.submitted && !eur.valid }">
+                <label for="eur">EUR</label>
+                <input type="number" step='0.0001' class="form-control" name="eur" [(ngModel)]="model.eur" #eur="ngModel" readonly/>
+            </div>
+            </div>
+            <div class="row justify-content-center">
+            <div class="form-group">
+                <button class="btn btn-primary">CALCULATE</button>
+            </div>
+            </div>
+        </form>
+    </div>
+    <br><br><br>
+    <div class="row justify-content-center"><h2>HISTORIC PRICE</h2></div><br>
+    <div class="row text-left">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-3">
+            <span *ngFor="let item of arrayRates1"><strong>{{item.base}}</strong> : {{item.val}}<br></span>
+        </div>
+        <div class="col-sm-3">
+            <span *ngFor="let item of arrayRates2"><strong>{{item.base}}</strong> : {{item.val}}<br></span>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+</div>
