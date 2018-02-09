@@ -21,4 +21,8 @@ public class CotizacionService {
 	public Cotizacion getCotizacionById(String id){
 		return this.cotizacionDao.findOne(id);
 	}
+	
+	public Cotizacion getCotizacionByBase(String id){
+		return this.cotizacionDao.findOne(id);
+	}
 }
