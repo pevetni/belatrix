@@ -1,6 +1,6 @@
 package com.practice.spring.Service;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,11 +14,11 @@ public class CotizacionService {
 	@Autowired
 	private CotizacionDao cotizacionDao;
 	
-	public Collection<Cotizacion> getAllCotizaciones(){
-		return this.cotizacionDao.getAllCotizaciones();
+	public List<Cotizacion> getAllCotizaciones(){
+		return this.cotizacionDao.findAll();
 	}
 	
 	public Cotizacion getCotizacionById(String id){
-		return this.cotizacionDao.getCotizacionById(id);
+		return this.cotizacionDao.findOne(id);
 	}
 }
