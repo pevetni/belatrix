@@ -5,8 +5,8 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 @Injectable()
 export class RatesService {
 
-    _urlEur = 'http://api.fixer.io/latest?base=USD&symbols=EUR';
-    _urlAll = 'http://api.fixer.io/latest?base=USD';
+    _urlEur = 'http://localhost:8080/cotizaciones/USD/EUR';
+    _urlAll = 'http://localhost:8080/cotizaciones/USD';
 
     constructor(private _http: HttpClient) {}
 
